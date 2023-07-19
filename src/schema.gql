@@ -1,0 +1,14 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Predial {
+  id: Float!
+  idOwner: Float
+  idTerrain: Float
+  idContruction: Float
+}
+
+type Query {
+  predials: [Predial!]!
+}
