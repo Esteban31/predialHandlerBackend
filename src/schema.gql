@@ -4,11 +4,59 @@
 
 type Predial {
   id: Float!
-  idOwner: Float
-  idTerrain: Float
-  idContruction: Float
+  idOwner: Float!
+  idTerrain: Float!
+  idConstruction: Float!
+}
+
+type Owner {
+  id: Float!
+  ownerType: String!
+  document: Float!
+  nit: String!
+  socialReason: String!
+  adress: String!
+  phone: String!
+  email: String!
+}
+
+type Construction {
+  id: Float!
+  numberFloors: Float!
+  area: Float!
+  type: String!
 }
 
 type Query {
   predials: [Predial!]!
+  owners: [Owner!]!
+  constructions: [Construction!]!
+}
+
+type Mutation {
+  createPredial(predialInput: createPredialInput!): [Predial!]!
+  createOwner(ownerInput: createOwnerInput!): Owner!
+  createConstruction(constructionInput: createConstructionInput!): Construction!
+}
+
+input createPredialInput {
+  idOwner: Float!
+  idTerrain: Float!
+  idConstruction: Float!
+}
+
+input createOwnerInput {
+  ownerType: String!
+  document: Float!
+  nit: String!
+  socialReason: String!
+  adress: String!
+  phone: String!
+  email: String!
+}
+
+input createConstructionInput {
+  numberFloors: Float!
+  area: Float!
+  type: String!
 }

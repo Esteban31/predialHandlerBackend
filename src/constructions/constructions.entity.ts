@@ -1,23 +1,23 @@
 /* eslint-disable prettier/prettier */
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+
 @Entity()
 @ObjectType()
-export class Predial {
-  
+export class Construction {
   @PrimaryGeneratedColumn('increment')
   @Field()
   id?: number;
 
   @Column()
   @Field()
-  idOwner?: number;
+  numberFloors: number
 
   @Column()
   @Field()
-  idTerrain?: number;
+  area: number
 
   @Column()
   @Field()
-  idConstruction?: number;
+  type: string
 }
