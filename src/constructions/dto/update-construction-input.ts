@@ -2,11 +2,11 @@
 import { Field, InputType } from '@nestjs/graphql';
 
 @InputType()
-export class createConstructionInput {
+export class updateConstructionInput {
+      
+      @Field()
+      id?: number
 
-      @Field({nullable: true})
-      id?:number
-    
       @Field()
       numberFloors: number
 

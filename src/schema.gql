@@ -27,22 +27,44 @@ type Construction {
   type: String!
 }
 
+type Terrain {
+  id: Float!
+  area: Float!
+  amount: Float!
+  nearWater: Boolean!
+  type: String!
+  haveContructions: Boolean!
+}
+
 type Query {
   predials: [Predial!]!
   owners: [Owner!]!
   constructions: [Construction!]!
+  terrains: [Terrain!]!
 }
 
 type Mutation {
   createPredial(predialInput: createPredialInput!): [Predial!]!
+  editPredial(predialInput: updatePredialInput!): Predial!
   createOwner(ownerInput: createOwnerInput!): Owner!
+  editOwner(ownerInput: updateOwnerInput!): Owner!
   createConstruction(constructionInput: createConstructionInput!): Construction!
+  editConstruction(terrainInput: updateTerrainInput!): Terrain!
+  deleteConstruction(deleteItem: Float!): Construction!
+  createTerrain(terrainInput: createTerrainInput!): Terrain!
 }
 
 input createPredialInput {
   idOwner: Float!
   idTerrain: Float!
   idConstruction: Float!
+}
+
+input updatePredialInput {
+  id: Float
+  idOwner: Float
+  idTerrain: Float
+  idConstruction: Float
 }
 
 input createOwnerInput {
@@ -55,8 +77,37 @@ input createOwnerInput {
   email: String!
 }
 
+input updateOwnerInput {
+  id: Float!
+  ownerType: String
+  document: Float
+  nit: String
+  socialReason: String
+  adress: String
+  phone: String
+  email: String
+}
+
 input createConstructionInput {
+  id: Float
   numberFloors: Float!
   area: Float!
   type: String!
+}
+
+input updateTerrainInput {
+  id: Float
+  area: Float
+  amount: Float
+  nearWater: Boolean
+  type: String
+  haveContructions: Boolean
+}
+
+input createTerrainInput {
+  area: Float!
+  amount: Float!
+  nearWater: Boolean!
+  type: String!
+  haveContructions: Boolean!
 }
